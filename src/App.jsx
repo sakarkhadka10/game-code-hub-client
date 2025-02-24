@@ -3,7 +3,6 @@ import { BrowserRouter } from "react-router-dom";
 import RouterConfig from "./Router/RouterConfig";
 import HeaderNotification from "./components/Elements/HeaderNotification";
 import { NOTIFICATION_DESKTOP } from "./config";
-import "@mantine/core/styles.css";
 import ProductState from "./context/Product/ProductState";
 import DesktopNav from "./components/Desktop/DesktopNav";
 
