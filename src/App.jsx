@@ -5,17 +5,22 @@ import HeaderNotification from "./components/Elements/HeaderNotification";
 import { NOTIFICATION_DESKTOP } from "./config";
 import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
+import ProductState from "./context/Product/ProductState";
+import DesktopNav from "./components/Desktop/DesktopNav";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <MantineProvider>
-          <div className="hidden md:block">
-            {NOTIFICATION_DESKTOP.isActive && <HeaderNotification />}
-          </div>
+          <ProductState>
+            <div className="hidden md:block">
+              {NOTIFICATION_DESKTOP.isActive && <HeaderNotification />}
+            </div>
+            <DesktopNav />
 
-          <RouterConfig />
+            <RouterConfig />
+          </ProductState>
         </MantineProvider>
       </BrowserRouter>
     </>

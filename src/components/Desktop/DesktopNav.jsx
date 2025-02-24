@@ -45,9 +45,11 @@ const DesktopNav = () => {
                 )
               </button>
             </Link>
-            <button className="bg-amber-100 px-4 py-2 rounded-lg cursor-pointer font-bold">
-              <span>Account</span>
-            </button>
+            <Link to="/login">
+              <button className="bg-amber-100 px-4 py-2 rounded-lg cursor-pointer font-bold">
+                <span>Account</span>
+              </button>
+            </Link>
           </ul>
         </div>
       </div>

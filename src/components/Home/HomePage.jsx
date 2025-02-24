@@ -3,14 +3,12 @@ import DesktopTopSelling from "../Desktop/DesktopTopSelling";
 import Shop from "./Shop";
 import AnimatedButton from "../Elements/AnimatedButton";
 import { Link } from "react-router-dom";
-import DesktopNav from "../Desktop/DesktopNav";
 
 const HomePage = () => {
   return (
     <div>
       {/*  Desktop View Devices */}
       <div className="hidden md:block">
-        <DesktopNav />
         <DesktopHero />
         <DesktopTopSelling />
         <div className="mt-8 ">
