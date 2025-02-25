@@ -10,7 +10,7 @@ export const navItems = [
 
 export const mobileNavItems = [
   { _id: 1, icon: FaHouse, name: "Home", link: "/" },
-  { _id: 2, icon: FaBarsStaggered, name: "Products", link: "/products" },
+  { _id: 2, icon: FaBarsStaggered, name: "Products", link: "/shop" },
   { _id: 3, icon: CartButton, name: "Carts", link: "/cart" },
   { _id: 4, icon: FaUser, name: "Account", link: "/mobile-account" },
 ];
