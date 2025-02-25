@@ -4,6 +4,8 @@ import Shop from "../components/Home/Shop";
 import CartPage from "../components/Home/CartPage";
 import RegistrationForm from "../components/Home/RegistrationForm";
 import LoginForm from "../components/Home/LoginForm";
+import Admin from "../components/Admin/Admin";
+import AdminLogin from "../components/Admin/AdminComponents/AdminLogin";
 
 const RouterConfig = () => {
   return (
@@ -15,6 +17,10 @@ const RouterConfig = () => {
         <Route path="/register" element={<RegistrationForm />} />
         <Route path="/login" element={<LoginForm />} />
         {/* Add more routes as needed */}
+
+        {/* This is a Admin Router */}
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin-login" element={<AdminLogin />} />
       </Routes>
     </>
   );
