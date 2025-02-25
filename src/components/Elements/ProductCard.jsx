@@ -9,7 +9,7 @@ const ProductCard = ({
   cart,
   dispatch,
 }) => {
-  const isInCart = cart.some((item) => item.id === product.id);
+  const isInCart = cart.some((item) => item._id === product._id);
   return (
     <div className="w-full h-full rounded-xl shadow-[1px_1px_5px_black] flex flex-col">
       <img

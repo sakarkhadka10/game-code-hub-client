@@ -37,7 +37,7 @@ const CartPage = () => {
           <div className="space-y-4">
             {cart.map((item) => (
               <div
-                key={item.id}
+                key={item._id}
                 className="flex justify-between items-center py-3 border-b-2 border-solid border-gray-200"
               >
                 <img
@@ -52,7 +52,10 @@ const CartPage = () => {
                 <div>
                   <button
                     onClick={() =>
-                      dispatch({ type: "REMOVE_FROM_CART", payload: item.id })
+                      dispatch({
+                        type: "REMOVE_FROM_CART",
+                        payload: item,
+                      })
                     }
                     className="text-sm text-red-600 hover:text-red-800 font-medium"
                   >

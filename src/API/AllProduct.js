@@ -1,6 +1,6 @@
 export const allProduct = [
   {
-    id: 1,
+    _id: 1, // Changed from id to _id
     image: "/productImg1.webp",
     title: "Bus Mania : Station Shuffle Game Buy Unity Source Code",
     category: "Game Template",
@@ -8,7 +8,7 @@ export const allProduct = [
     inStock: 5,
   },
   {
-    id: 2,
+    _id: 2,
     image: "/productImg2.png",
     title: "Deliver It 3D Game Unity 3D Source Code",
     category: "Car Racing Game",
@@ -16,7 +16,7 @@ export const allProduct = [
     inStock: 3,
   },
   {
-    id: 3,
+    _id: 3,
     image: "/productImg3.webp",
     title: "Human vs Alien – Multiplayer Game Buy Unity Source Code",
     category: "RPG Template",
@@ -24,7 +24,7 @@ export const allProduct = [
     inStock: 7,
   },
   {
-    id: 4,
+    _id: 4,
     image: "/productImg4.webp",
     title: "Metal Black OPS Game Buy Unity Source Code",
     category: "Puzzle Game",
@@ -32,7 +32,7 @@ export const allProduct = [
     inStock: 2,
   },
   {
-    id: 5,
+    _id: 5,
     image: "/productImg5.webp",
     title: "Tactical Knight Game – Buy Unity Games",
     category: "Space Shooter",
@@ -40,7 +40,7 @@ export const allProduct = [
     inStock: 6,
   },
   {
-    id: 6,
+    _id: 6,
     image: "/productImg6.webp",
     title: "New Year Simulation Bundle 10 Best Unity Game Source Code",
     category: "Game Template",
@@ -48,7 +48,7 @@ export const allProduct = [
     inStock: 4,
   },
   {
-    id: 7,
+    _id: 7,
     image: "/productImg7.webp",
     title: "Santa's Christmas Bundle Top 10 Unity Game Source Code",
     category: "Game Template",
@@ -56,7 +56,7 @@ export const allProduct = [
     inStock: 8,
   },
   {
-    id: 8,
+    _id: 8,
     image: "/productImg8.webp",
     title: "Summer Special Deal 30 Unity Source Code Bundle",
     category: "Game Template",
@@ -64,7 +64,7 @@ export const allProduct = [
     inStock: 3,
   },
   {
-    id: 9,
+    _id: 9,
     image: "/productImg9.webp",
     title: "Ultimate Winter Deal Get 100 Plus Games",
     category: "Game Template",
@@ -72,7 +72,7 @@ export const allProduct = [
     inStock: 5,
   },
   {
-    id: 10,
+    _id: 10,
     image: "/productImg10.webp",
     title: "Unity Hyper Pack 17 Games Source Code Deal",
     category: "Game Template",
@@ -80,7 +80,7 @@ export const allProduct = [
     inStock: 2,
   },
   {
-    id: 11,
+    _id: 11,
     image: "/productImg11.webp",
     title: "Buy Unity Source Code | Empire.io ",
     category: "Game Template",
@@ -88,7 +88,7 @@ export const allProduct = [
     inStock: 6,
   },
   {
-    id: 12,
+    _id: 12,
     image: "/productImg12.webp",
     title: "Buy Unity Games | Draw Puzzle Story",
     category: "Car Racing Game",
@@ -96,7 +96,7 @@ export const allProduct = [
     inStock: 4,
   },
   {
-    id: 13,
+    _id: 13,
     image: "/productImg13.webp",
     title: "Buy Unity Games | Dead Flip Challenge",
     category: "RPG Template",
@@ -104,7 +104,7 @@ export const allProduct = [
     inStock: 7,
   },
   {
-    id: 14,
+    _id: 14,
     image: "/productImg14.webp",
     title: "Circus Dart Wheel Game – Unity Games Source Code",
     category: "Puzzle Game",
@@ -112,7 +112,7 @@ export const allProduct = [
     inStock: 3,
   },
   {
-    id: 15,
+    _id: 15,
     image: "/productImg15.webp",
     title: "Chop & Mine Idle Game – Buy Unity Source Code",
     category: "Space Shooter",
@@ -120,7 +120,7 @@ export const allProduct = [
     inStock: 5,
   },
   {
-    id: 16,
+    _id: 16,
     image: "/productImg16.webp",
     title: "Block Shooter Game – Buy Unity Source Code",
     category: "Game Template",
@@ -128,7 +128,7 @@ export const allProduct = [
     inStock: 2,
   },
   {
-    id: 17,
+    _id: 17,
     image: "/productImg17.webp",
     title: "Brain Master Puzzle Game – Buy Unity Game Source Code",
     category: "Game Template",
@@ -136,7 +136,7 @@ export const allProduct = [
     inStock: 6,
   },
   {
-    id: 18,
+    _id: 18,
     image: "/productImg18.webp",
     title: "Ball Thrower Game – Buy Unity Source Code",
     category: "Game Template",
@@ -144,7 +144,7 @@ export const allProduct = [
     inStock: 4,
   },
   {
-    id: 19,
+    _id: 19,
     image: "/productImg19.webp",
     title: "Big Head Game – Buy Unity Source Code",
     category: "Game Template",
@@ -152,7 +152,7 @@ export const allProduct = [
     inStock: 8,
   },
   {
-    id: 20,
+    _id: 20,
     image: "/productImg20.webp",
     title: "Squid Game 7 Challenge Game Buy Unity Source Code",
     category: "Game Template",

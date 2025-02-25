@@ -20,7 +20,9 @@ const DesktopNav = () => {
     <>
       <div className="flex justify-between items-center px-5 py-3">
         <div className="text-2xl font-extrabold">
-          <h1>{PROJECT_NAME}</h1>
+          <Link to="/">
+            <h1>{PROJECT_NAME}</h1>
+          </Link>
         </div>
         <div className="flex justify-between items-center gap-10">
           <ul className="flex items-center gap-6 font-semibold text-md">

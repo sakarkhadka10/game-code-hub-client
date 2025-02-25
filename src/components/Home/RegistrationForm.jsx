@@ -35,7 +35,7 @@ const RegistrationForm = () => {
     console.log("form submitted", data);
     if (data.authToken) {
       localStorage.setItem("token", data.authToken);
-      navigate("/");
+      navigate("/login");
     } else {
       console.log("Registration failed:", data.error || "Unknown error");
     }

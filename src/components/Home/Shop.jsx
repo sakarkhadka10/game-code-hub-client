@@ -15,8 +15,8 @@ const Shop = () => {
       <div className="hidden md:block">{/* <DesktopNav /> */}</div>
       <div className="py-11 min-h-screen">
         <div className="grid px-20 grid-cols-4 justify-items-center gap-7 items-stretch">
-          {product.map((product, index) => (
-            <div key={index} className="w-[270px] h-auto flex flex-col">
+          {product.map((product) => (
+            <div key={product._id} className="w-[270px] h-auto flex flex-col">
               <ProductCard
                 image={product.image}
                 title={product.title}
