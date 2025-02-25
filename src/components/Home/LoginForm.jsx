@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { AuthContext } from "../../context/Auth/AuthContext.jsx"; // Updated import
 
 const LoginForm = () => {
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
-  const [credentials, setcredentials] = useState({
+  const [credentials, setCredentials] = useState({
     email: "",
     password: "",
   });
@@ -13,7 +15,7 @@ const LoginForm = () => {
 
   const submitButtonHandler = async (e) => {
     e.preventDefault();
-    setError(null); // Clear previous errors
+    setError(null);
     const { email, password } = credentials;
 
     try {
@@ -25,18 +27,21 @@ const LoginForm = () => {
         body: JSON.stringify({ email, password }),
       });
 
-      // Check status first, before parsing JSON
-      //This will basically check weather wrong email : 404 and when 400 : wrong pass
       if (response.status === 400 || response.status === 404) {
         setError("Invalid credentials");
-        return; // Exit early
+        return;
       }
 
-      const data = await response.json(); // Parse JSON only if status is okay
+      const data = await response.json();
 
       if (response.ok && data.authToken) {
-        localStorage.setItem("token", data.authToken);
-        navigate("/");
+        await login(data.authToken); // Call context login
+        const usertype = data.user.usertype;
+        if (usertype === "admin") {
+          navigate("/admin");
+        } else {
+          navigate("/");
+        }
       } else {
         setError(data.error || "Something went wrong. Please try again.");
       }
@@ -46,7 +51,7 @@ const LoginForm = () => {
   };
 
   const changeHandler = (e) => {
-    setcredentials({ ...credentials, [e.target.name]: e.target.value });
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
   return (

@@ -6,25 +6,28 @@ import { NOTIFICATION_DESKTOP } from "./config";
 import ProductState from "./context/Product/ProductState";
 import DesktopNav from "./components/Desktop/DesktopNav";
 import MobileNav from "./components/Mobile/MobileNav";
+import AuthProvider from "./context/Auth/AuthProvider";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <ProductState>
-          <div className="hidden md:block">
-            {NOTIFICATION_DESKTOP.isActive && <HeaderNotification />}
-          </div>
-          <div className="hidden md:block">
-            <DesktopNav />
-          </div>
-          <div className="md:hidden">
-            <MobileNav />
-          </div>
+      <AuthProvider>
+        <BrowserRouter>
+          <ProductState>
+            <div className="hidden md:block">
+              {NOTIFICATION_DESKTOP.isActive && <HeaderNotification />}
+            </div>
+            <div className="hidden md:block">
+              <DesktopNav />
+            </div>
+            <div className="md:hidden">
+              <MobileNav />
+            </div>
 
-          <RouterConfig />
-        </ProductState>
-      </BrowserRouter>
+            <RouterConfig />
+          </ProductState>
+        </BrowserRouter>
+      </AuthProvider>
     </>
   );
 }

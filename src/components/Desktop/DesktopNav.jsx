@@ -1,13 +1,18 @@
 import { useContext } from "react";
 import { PROJECT_NAME } from "../../config.js";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import productContext from "../../context/Product/ProductContext.jsx";
+import { AuthContext } from "../../context/Auth/AuthContext.jsx"; // Use named import
 
 const DesktopNav = () => {
-  const context = useContext(productContext);
+  const navigate = useNavigate();
+  const productCtx = useContext(productContext);
+  const authCtx = useContext(AuthContext); // Capitalized AuthContext
   const {
     state: { cart },
-  } = context;
+  } = productCtx;
+
+  const { user, isLoggedIn, logout } = authCtx;
 
   const NavItems = [
     { id: 1, name: "Home", link: "/" },
@@ -16,46 +21,51 @@ const DesktopNav = () => {
     { id: 4, name: "Privacy Policy", link: "#" },
     { id: 5, name: "Contact Us", link: "#" },
   ];
+
+  const handleLogout = () => {
+    logout(); // Use context logout
+    navigate("/login");
+  };
+
   return (
-    <>
-      <div className="flex justify-between items-center px-5 py-3">
-        <div className="text-2xl font-extrabold">
-          <Link to="/">
-            <h1>{PROJECT_NAME}</h1>
+    <div className="flex justify-between items-center px-5 py-3">
+      <div className="text-2xl font-extrabold">
+        <Link to="/">
+          <h1>{PROJECT_NAME}</h1>
+        </Link>
+      </div>
+      <div className="flex justify-between items-center gap-10">
+        <ul className="flex items-center gap-6 font-semibold text-md">
+          {NavItems.map((item) => (
+            <li key={item.id}>
+              <Link to={item.link}>{item.name}</Link>
+            </li>
+          ))}
+          <Link to="/cart">
+            <button className="flex items-center gap-1.5 cursor-pointer font-bold">
+              <img src="/cart.png" alt="cart" className="w-6" />({cart.length})
+            </button>
           </Link>
-        </div>
-        <div className="flex justify-between items-center gap-10">
-          <ul className="flex items-center gap-6 font-semibold text-md">
-            {NavItems.map((items) => {
-              return (
-                <li key={items.id}>
-                  <Link to={items.link}>{items.name}</Link>
-                </li>
-              );
-            })}
-            {/* <button className=" flex items-center gap-1.5 cursor-pointer font-bold">
-              <img
-                src="/notifications.png"
-                alt="notifications"
-                className="w-6"
-              />
-              (15$)
-            </button> */}
-            <Link to="/cart">
-              <button className=" flex items-center gap-1.5 cursor-pointer font-bold">
-                <img src="/cart.png" alt="cart" className="w-6" />({cart.length}
-                )
+          {isLoggedIn ? (
+            <div className="flex items-center gap-4">
+              <span className="font-bold">Welcome, {user?.name}</span>
+              <button
+                onClick={handleLogout}
+                className="bg-red-500 text-white px-4 py-2 rounded-lg cursor-pointer font-bold hover:bg-red-600"
+              >
+                Logout
               </button>
-            </Link>
+            </div>
+          ) : (
             <Link to="/login">
               <button className="bg-amber-100 px-4 py-2 rounded-lg cursor-pointer font-bold">
                 <span>Account</span>
               </button>
             </Link>
-          </ul>
-        </div>
+          )}
+        </ul>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -11,6 +11,7 @@ const RegistrationForm = () => {
     password: "",
     confirmPassword: "",
   });
+  const registerApi = `${import.meta.env.VITE_SECRET_KEY_URI}/auth/register`;
 
   const submitButtonHandler = async (e) => {
     e.preventDefault();
@@ -22,7 +23,7 @@ const RegistrationForm = () => {
       return; // Add UI feedback here (e.g., alert or error state)
     }
 
-    const response = await fetch("http://localhost:5000/api/auth/register", {
+    const response = await fetch(registerApi, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,6 +36,7 @@ const RegistrationForm = () => {
     console.log("form submitted", data);
     if (data.authToken) {
       localStorage.setItem("token", data.authToken);
+      alert("Registration Successful");
       navigate("/login");
     } else {
       console.log("Registration failed:", data.error || "Unknown error");
