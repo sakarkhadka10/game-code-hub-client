@@ -13,7 +13,7 @@ const Shop = () => {
   return (
     <>
       <div className="py-11 min-h-screen">
-        <div className="grid px-20 grid-cols-1 md:grid-cols-4 justify-items-center gap-7 items-stretch">
+        <div className="grid px-20 grid-cols-1 md:grid-cols-4 mb-8 justify-items-center gap-7 items-stretch">
           {product.map((product) => (
             <div key={product._id} className="w-[270px] h-auto flex flex-col">
               <ProductCard

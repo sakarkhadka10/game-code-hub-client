@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const MobileNav = () => {
   return (
-    <div className="bg-amber-800 fixed bottom-0 w-full px-6 text-white py-3">
+    <div className="bg-amber-800 fixed bottom-0 w-full px-6 text-white py-1">
       <div className="flex justify-between items-center">
         {mobileNavItems.map(({ _id, name, link, icon: Icon }) => {
           return (

@@ -18,16 +18,11 @@ const CartPage = () => {
 
   return (
     <>
-      <div className="w-full container mx-auto px-4 py-8">
+      <div className=" mx-auto px-4">
         {cart.length === 0 ? (
           <div className="text-center">
-            {/* <img
-            src="https://i.pinimg.com/736x/47/07/f4/4707f4138db3ff7930a081dc17974fd8.jpg"
-            alt="Empty Cart"
-            className="mx-auto max-w-[300px]"
-          /> */}
             <EmptyCart />
-            <h2 className="text-xl md:text-2xl font-semibold my-4">
+            <h2 className="text-xl md:text-2xl font-semibold mb-4">
               Your Cart is Empty
             </h2>
             <Link to="/shop">
@@ -35,7 +30,7 @@ const CartPage = () => {
             </Link>
           </div>
         ) : (
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-3xl mx-auto py-8 ">
             <h1 className="text-3xl font-bold mb-6">Shopping Cart</h1>
             <div className="space-y-4">
               {cart.map((item) => (

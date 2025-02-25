@@ -1,19 +1,14 @@
-import Lottie from "react-lottie";
-import cartAnimation from "../../assets/EmptyCartAnim.json";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function EmptyCart() {
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: cartAnimation,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-
   return (
-    <div>
-      <Lottie options={defaultOptions} height={400} width={300} />
+    <div className="flex justify-center items-center">
+      <DotLottieReact
+        src="/EmptyCart.lottie"
+        loop
+        autoplay
+        style={{ height: "350px", width: "250px" }} // Your perfect size
+      />
     </div>
   );
 }

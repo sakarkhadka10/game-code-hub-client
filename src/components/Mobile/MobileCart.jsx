@@ -1,5 +1,5 @@
-import  { useContext } from "react";
-import { FaArrowLeft, FaTrash } from "react-icons/fa6";
+import { useContext } from "react";
+import { FaTrash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import productContext from "../../context/ProductContext";
 
@@ -14,13 +14,6 @@ const MobileCart = () => {
   return (
     <>
       <div>
-        <div className="bg-white px-5 py-3 shadow-sm">
-          <Link to="/" className="flex items-center gap-3">
-            <FaArrowLeft />
-            <h1>My Cart</h1>
-          </Link>
-        </div>
-
         <div className="mt-4 p-2 pb-20">
           {" "}
           {/* Add bottom padding to prevent overlap */}
