@@ -17,66 +17,70 @@ const CartPage = () => {
   );
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      {cart.length === 0 ? (
-        <div className="text-center">
-          {/* <img
+    <>
+      <div className="w-full container mx-auto px-4 py-8">
+        {cart.length === 0 ? (
+          <div className="text-center">
+            {/* <img
             src="https://i.pinimg.com/736x/47/07/f4/4707f4138db3ff7930a081dc17974fd8.jpg"
             alt="Empty Cart"
             className="mx-auto max-w-[300px]"
           /> */}
-          <EmptyCart />
-          <h2 className="text-2xl font-semibold my-4">Your Cart is Empty</h2>
-          <Link to="/shop">
-            <AnimatedButton name="Continue Shopping" />
-          </Link>
-        </div>
-      ) : (
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-3xl font-bold mb-6">Shopping Cart</h1>
-          <div className="space-y-4">
-            {cart.map((item) => (
-              <div
-                key={item._id}
-                className="flex justify-between items-center py-3 border-b-2 border-solid border-gray-200"
-              >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-16 h-16 object-cover rounded"
-                />
-                <div className="flex flex-col gap-1 flex-1 mx-4">
-                  <h3 className="font-semibold">{item.title}</h3>
-                  <p className="text-gray-600">Price: ${item.price}</p>
-                </div>
-                <div>
-                  <button
-                    onClick={() =>
-                      dispatch({
-                        type: "REMOVE_FROM_CART",
-                        payload: item,
-                      })
-                    }
-                    className="text-sm text-red-600 hover:text-red-800 font-medium"
-                  >
-                    Remove
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-6 flex justify-between items-center border-t-2 pt-4">
-            <h3 className="text-xl font-semibold">Total:</h3>
-            <p className="text-xl font-bold">${totalPrice}</p>
-          </div>
-          <div className="mt-6 flex justify-end">
-            <Link to="/checkout">
-              <AnimatedButton name="Proceed to Checkout" />
+            <EmptyCart />
+            <h2 className="text-xl md:text-2xl font-semibold my-4">
+              Your Cart is Empty
+            </h2>
+            <Link to="/shop">
+              <AnimatedButton name="Continue Shopping" />
             </Link>
           </div>
-        </div>
-      )}
-    </div>
+        ) : (
+          <div className="max-w-3xl mx-auto">
+            <h1 className="text-3xl font-bold mb-6">Shopping Cart</h1>
+            <div className="space-y-4">
+              {cart.map((item) => (
+                <div
+                  key={item._id}
+                  className="flex justify-between items-center py-3 border-b-2 border-solid border-gray-200"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-16 h-16 object-cover rounded"
+                  />
+                  <div className="flex flex-col gap-1 flex-1 mx-4">
+                    <h3 className="font-semibold">{item.title}</h3>
+                    <p className="text-gray-600">Price: ${item.price}</p>
+                  </div>
+                  <div>
+                    <button
+                      onClick={() =>
+                        dispatch({
+                          type: "REMOVE_FROM_CART",
+                          payload: item,
+                        })
+                      }
+                      className="text-sm text-red-600 hover:text-red-800 font-medium"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 flex justify-between items-center border-t-2 pt-4">
+              <h3 className="text-xl font-semibold">Total:</h3>
+              <p className="text-xl font-bold">${totalPrice}</p>
+            </div>
+            <div className="mt-6 flex justify-end">
+              <Link to="/checkout">
+                <AnimatedButton name="Proceed to Checkout" />
+              </Link>
+            </div>
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 

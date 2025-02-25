@@ -3,6 +3,7 @@ import DesktopTopSelling from "../Desktop/DesktopTopSelling";
 import Shop from "./Shop";
 import AnimatedButton from "../Elements/AnimatedButton";
 import { Link } from "react-router-dom";
+import MobileHome from "../Mobile/MobileHome";
 
 const HomePage = () => {
   return (
@@ -21,6 +22,11 @@ const HomePage = () => {
           </div>
           <Shop />
         </div>
+      </div>
+
+      {/*  Mobile View Devices */}
+      <div className="md:hidden">
+        <MobileHome />
       </div>
     </div>
   );

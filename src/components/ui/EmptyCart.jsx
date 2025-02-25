@@ -1,4 +1,3 @@
-
 import Lottie from "react-lottie";
 import cartAnimation from "../../assets/EmptyCartAnim.json";
 
@@ -14,7 +13,7 @@ export default function EmptyCart() {
 
   return (
     <div>
-      <Lottie options={defaultOptions} height={400} width={400} />
+      <Lottie options={defaultOptions} height={400} width={300} />
     </div>
   );
 }

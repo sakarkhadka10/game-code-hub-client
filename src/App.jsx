@@ -5,6 +5,7 @@ import HeaderNotification from "./components/Elements/HeaderNotification";
 import { NOTIFICATION_DESKTOP } from "./config";
 import ProductState from "./context/Product/ProductState";
 import DesktopNav from "./components/Desktop/DesktopNav";
+import MobileNav from "./components/Mobile/MobileNav";
 
 function App() {
   return (
@@ -14,7 +15,12 @@ function App() {
           <div className="hidden md:block">
             {NOTIFICATION_DESKTOP.isActive && <HeaderNotification />}
           </div>
-          <DesktopNav />
+          <div className="hidden md:block">
+            <DesktopNav />
+          </div>
+          <div className="md:hidden">
+            <MobileNav />
+          </div>
 
           <RouterConfig />
         </ProductState>
