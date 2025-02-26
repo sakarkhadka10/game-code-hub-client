@@ -3,6 +3,7 @@ import { PROJECT_NAME } from "../../config.js";
 import { Link, useNavigate } from "react-router-dom";
 import productContext from "../../context/Product/ProductContext.jsx";
 import { AuthContext } from "../../context/Auth/AuthContext.jsx"; // Use named import
+import LoginProfile from "../Elements/LoginProfile.jsx";
 
 const DesktopNav = () => {
   const navigate = useNavigate();
@@ -47,15 +48,7 @@ const DesktopNav = () => {
             </button>
           </Link>
           {isLoggedIn ? (
-            <div className="flex items-center gap-4">
-              <span className="font-bold">Welcome, {user?.name}</span>
-              <button
-                onClick={handleLogout}
-                className="bg-red-500 text-white px-4 py-2 rounded-lg cursor-pointer font-bold hover:bg-red-600"
-              >
-                Logout
-              </button>
-            </div>
+            <LoginProfile handleLogout={handleLogout} user={user} />
           ) : (
             <Link to="/login">
               <button className="bg-amber-100 px-4 py-2 rounded-lg cursor-pointer font-bold">
