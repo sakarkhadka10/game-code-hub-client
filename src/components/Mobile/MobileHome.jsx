@@ -1,4 +1,4 @@
-import Shop from "../Home/Shop";
+import Shop from "../Page/Shop";
 import SearchBar from "./MobileComponents/SearchBar";
 
 const MobileHome = () => {

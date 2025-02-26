@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { AuthContext } from "../../context/Auth/AuthContext.jsx"; // Updated import
+import { AuthContext } from "../../../context/Auth/AuthContext.jsx"; // Updated import
 
 const LoginForm = () => {
   const navigate = useNavigate();

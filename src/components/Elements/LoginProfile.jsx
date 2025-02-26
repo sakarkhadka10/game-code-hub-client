@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const LoginProfile = ({ handleLogout, user }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -85,20 +86,20 @@ const LoginProfile = ({ handleLogout, user }) => {
                 <span className="block px-4 py-2 font-bold">{`Welcome, ${user?.name}`}</span>
               </li>
               <li>
-                <a
-                  href="/profile"
+                <Link
+                  to={"/usersprofile"}
                   className=" px-4 py-2 text-gray-800 hover:bg-gray-100 flex items-center"
                 >
                   <span className="mr-2">👤</span> Profile
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/collections"
+                <Link
+                  to={"/userscollection"}
                   className=" px-4 py-2 text-gray-800 hover:bg-gray-100 flex items-center"
                 >
                   <span className="mr-2">👤</span> Collections
-                </a>
+                </Link>
               </li>
               <li>
                 <a
