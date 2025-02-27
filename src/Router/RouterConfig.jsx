@@ -8,44 +8,35 @@ import UsersProfile from "../components/Users/UsersProfile";
 import UsersCollection from "../components/Users/UsersCollection";
 import ProtectedRoute from "./ProtectedRoute";
 import AdminLayout from "../components/Admin/AdminLayout";
+import AddProducts from "../components/Admin/layouts/Sidebar/MenuLists/AddProducts";
+import Dashboard from "../components/Admin/layouts/Dashboard/Dashboard";
 
 const RouterConfig = () => {
-  //const isLoggedIn = localStorage.getItem("loggedIn"); // check if logged in already
-  //const userType = localStorage.getItem("userType"); // check if the logged in user is a User or Admin
   return (
-    <>
-      <Routes>
-        {/* Unauthorized Routes */}
-        {/* {!isLoggedIn && (
-          <>
-            <Route path="/register" element={<RegistrationForm />} />
-            <Route path="/login" element={<LoginForm />} />
-            <Route path="/" element={<LoginForm />} />
-          </>
-        )} */}
-        {/* Protected Route */}
-        <Route element={ProtectedRoute}>
-          {/* Basic Login & Register */}
+    <Routes>
+      {/* Public routes */}
+      <Route path="/" element={<HomePage />} />
+      <Route path="/shop" element={<Shop />} />
+      <Route path="/cart" element={<CartPage />} />
+      <Route path="/register" element={<RegistrationForm />} />
+      <Route path="/login" element={<LoginForm />} />
 
-          {/* This is A Users Router */}
-        </Route>
-
-        <Route path="/" element={<HomePage />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/cart" element={<CartPage />} />
-
+      {/* Protected user routes */}
+      <Route element={<ProtectedRoute />}>
         <Route path="/usersprofile" element={<UsersProfile />} />
         <Route path="/userscollection" element={<UsersCollection />} />
+      </Route>
 
-        <Route path="/register" element={<RegistrationForm />} />
-        <Route path="/login" element={<LoginForm />} />
-
-        {/* This is a Admin Router */}
-        <Route path="/admin" element={<AdminLayout />} />
-
-        {/* Add more routes as needed */}
-      </Routes>
-    </>
+      {/* Protected admin routes */}
+      <Route element={<ProtectedRoute />}>
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="products/add" element={<AddProducts />} />
+          <Route path="products" element={<AddProducts />} />
+          {/* Add other admin routes here */}
+        </Route>
+      </Route>
+    </Routes>
   );
 };
 
