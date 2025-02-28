@@ -23,20 +23,20 @@ const RouterConfig = () => {
       <Route path="/login" element={<LoginForm />} />
 
       {/* Protected user routes */}
-      <Route element={<ProtectedRoute />}>
-        <Route path="/usersprofile" element={<UsersProfile />} />
-        <Route path="/userscollection" element={<UsersCollection />} />
-      </Route>
+      {/* <Route element={<ProtectedRoute />}> */}
+      <Route path="/usersprofile" element={<UsersProfile />} />
+      <Route path="/userscollection" element={<UsersCollection />} />
+      {/* </Route> */}
 
       {/* Protected admin routes */}
-      <Route element={<ProtectedRoute />}>
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<Dashboard />} />
-          <Route path="products/add" element={<AddProducts />} />
-          <Route path="products" element={<AddProducts />} />
-          <Route path="all-users" element={<AllUsers />} />
-          {/* Add other admin routes here */}
-        </Route>
+      {/* <Route element={<ProtectedRoute />}> */}
+      <Route path="/admin" element={<AdminLayout />}>
+        <Route index element={<Dashboard />} />
+        <Route path="products/add" element={<AddProducts />} />
+        <Route path="products" element={<AddProducts />} />
+        <Route path="all-users" element={<AllUsers />} />
+        {/* Add other admin routes here */}
+        {/* </Route> */}
       </Route>
     </Routes>
   );
