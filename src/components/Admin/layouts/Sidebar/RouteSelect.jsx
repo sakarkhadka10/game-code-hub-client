@@ -12,7 +12,7 @@ const RouteSelect = () => {
     { Icon: FiHome, title: "Dashboard", link: "/admin" },
     { Icon: FiUsers, title: "Products", link: "/admin/products" },
     { Icon: FiUsers, title: "Add Products", link: "/admin/products/add" },
-    { Icon: FiPaperclip, title: "Invoices", link: "/admin/invoices" },
+    { Icon: FiPaperclip, title: "Users", link: "/admin/all-users" },
     { Icon: FiLink, title: "Integrations", link: "/admin/integrations" },
     { Icon: FiDollarSign, title: "Finance", link: "/admin/finance" },
   ];
