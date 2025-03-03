@@ -1,55 +1,67 @@
 import PropTypes from "prop-types";
-import { FiTrendingDown, FiTrendingUp } from "react-icons/fi";
 
 export const StatCards = () => {
   return (
     <>
+      <Card title="Items" value="5" icons="/Icons/items.webp" bgcol="#656565" />
       <Card
-        title="Gross Revenue"
-        value="$120,054.24"
-        pillText="2.75%"
-        trend="up"
-        period="From Jan 1st - Jul 31st"
+        title="Orders"
+        value="10"
+        icons="/Icons/cart.webp"
+        bgcol="#ffda45"
       />
       <Card
-        title="Avg Order"
-        value="$27.97"
-        pillText="1.01%"
-        trend="down"
-        period="From Jan 1st - Jul 31st"
+        title="Earnings"
+        value="$500"
+        icons="/Icons/dollar.webp"
+        bgcol="#656565"
+      />
+      <Card title="Users" value={5} icons="/Icons/users.webp" bgcol="#ffda45" />
+      <Card
+        title="Comments"
+        value="18"
+        icons="/Icons/comments.webp"
+        bgcol="#656565"
       />
       <Card
-        title="Trailing Year"
-        value="$278,054.24"
-        pillText="60.75%"
-        trend="up"
-        period="Previous 365 days"
+        title="Subscribers"
+        value="110"
+        icons="/Icons/subscribers.webp"
+        bgcol="#ffda45"
       />
+      <Card
+        title="Categories"
+        value="2"
+        icons="/Icons/tag.webp"
+        bgcol="#656565"
+      />
+      <Card title="Post" value="17" icons="/Icons/pages.webp" bgcol="#ffda45" />
     </>
   );
 };
 
-const Card = ({ title, value, pillText, trend, period }) => {
+const Card = ({ title, value, icons, bgcol }) => {
   return (
-    <div className="col-span-4 p-4 rounded border border-stone-300">
-      <div className="flex mb-8 items-start justify-between">
-        <div>
-          <h3 className="text-stone-500 mb-2 text-sm">{title}</h3>
-          <p className="text-3xl font-semibold">{value}</p>
-        </div>
-
-        <span
-          className={`text-xs flex items-center gap-1 font-medium px-2 py-1 rounded ${
-            trend === "up"
-              ? "bg-green-100 text-green-700"
-              : "bg-red-100 text-red-700"
-          }`}
-        >
-          {trend === "up" ? <FiTrendingUp /> : <FiTrendingDown />} {pillText}
-        </span>
+    <div className="w-60 rounded-xl bg-white border shadow-2xl h-auto">
+      <div
+        style={{ backgroundColor: bgcol }}
+        className={`py-2 text-center w-full rounded-t-xl ${
+          bgcol === "#ffda45" ? "text-black" : "text-white"
+        }`}
+      >
+        <h1 className="text-2xl font-bold">{title}</h1>
       </div>
-
-      <p className="text-xs text-stone-500">{period}</p>
+      <div className="grid grid-cols-3 items-center justify-between px-4 py-4">
+        <div>
+          <img src={icons} alt={title} className="w-14" />
+        </div>
+        <div>
+          <hr className="w-[88px]" style={{ transform: "rotate(90deg)" }} />
+        </div>
+        <div className="text-2xl">
+          <h1>{value}</h1>
+        </div>
+      </div>
     </div>
   );
 };
@@ -57,7 +69,6 @@ const Card = ({ title, value, pillText, trend, period }) => {
 Card.propTypes = {
   title: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
-  pillText: PropTypes.string.isRequired,
-  trend: PropTypes.oneOf(["up", "down"]).isRequired,
-  period: PropTypes.string.isRequired,
+  icons: PropTypes.string.isRequired,
+  bgcol: PropTypes.string.isRequired,
 };

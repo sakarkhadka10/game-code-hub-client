@@ -7,6 +7,8 @@ const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Change null to false for clarity
   const getUserApi = `${import.meta.env.VITE_SECRET_KEY_URI}/auth/getuser`;
 
+  //Fetch All Users Data
+
   // Fetch User Data Based on Token
   const fetchUserDetails = async (token) => {
     try {
@@ -62,7 +64,7 @@ const AuthProvider = ({ children }) => {
 };
 
 AuthProvider.propTypes = {
-  children: PropTypes.node.isRequired, // Make it required
+  children: PropTypes.node.isRequired,
 };
 
 export default AuthProvider;
