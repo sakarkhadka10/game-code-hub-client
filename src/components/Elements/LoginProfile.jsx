@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 const LoginProfile = ({ handleLogout, user }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  // Get usertype from the user object, defaulting to "user" if not specified
-  const userType = user?.usertype || "user"; // Note: using "usertype" to match your schema
+  const userType = user?.usertype || "user";
 
   return (
     <div className="relative flex items-center gap-4">
@@ -35,12 +34,12 @@ const LoginProfile = ({ handleLogout, user }) => {
               {/* Show Administration only if usertype is "admin" */}
 
               <li>
-                <a
-                  href="/administration"
+                <Link
+                  to="/admin"
                   className=" px-4 py-2 text-gray-800 hover:bg-gray-100 flex items-center"
                 >
                   <span className="mr-2 text-blue-500">•</span> Administration
-                </a>
+                </Link>
               </li>
               <li>
                 <a

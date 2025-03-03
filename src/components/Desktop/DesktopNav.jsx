@@ -2,13 +2,13 @@ import { useContext } from "react";
 import { PROJECT_NAME } from "../../config.js";
 import { Link, useNavigate } from "react-router-dom";
 import productContext from "../../context/Product/ProductContext.jsx";
-import { AuthContext } from "../../context/Auth/AuthContext.jsx"; // Use named import
+import { AuthContext } from "../../context/Auth/AuthContext.jsx";
 import LoginProfile from "../Elements/LoginProfile.jsx";
 
 const DesktopNav = () => {
   const navigate = useNavigate();
   const productCtx = useContext(productContext);
-  const authCtx = useContext(AuthContext); // Capitalized AuthContext
+  const authCtx = useContext(AuthContext);
   const {
     state: { cart },
   } = productCtx;
