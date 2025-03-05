@@ -41,7 +41,7 @@ const AuthProvider = ({ children }) => {
     if (token) {
       fetchUserDetails(token);
     }
-  }, []);
+  }, [ ]);
 
   // Login function to set token and fetch user
   const login = async (token) => {
