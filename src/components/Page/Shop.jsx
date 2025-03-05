@@ -1,15 +1,22 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import productContext from "../../context/Product/ProductContext";
 import ProductCard from "../Elements/ProductCard";
 
 const Shop = () => {
+  const getUserApi = `${import.meta.env.VITE_SECRET_KEY_ONLY_URI}`;
+
   // TODO: Implement Shop page with filtering, sorting, and pagination
   const context = useContext(productContext);
   const {
     state: { cart },
     dispatch,
     product,
+    fetchProducts,
   } = context;
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
   return (
     <>
       <div className="py-11 min-h-screen">
@@ -17,7 +24,7 @@ const Shop = () => {
           {product.map((product) => (
             <div key={product._id} className="w-[270px] h-auto flex flex-col">
               <ProductCard
-                image={product.image}
+                image={`${getUserApi}/uploads/${product.image}`}
                 title={product.title}
                 category={product.category}
                 price={product.price}
