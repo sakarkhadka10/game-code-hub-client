@@ -16,12 +16,16 @@ const ProductState = (props) => {
   // Fetching Products From Database
   const fetchProducts = async () => {
     try {
-      const response = await fetch(getUserApi, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        getUserApi ||
+          "https://game-code-hub-server.vercel.app/api/product/getallproduct",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       let data = await response.json();
       console.log(data);
       setProduct(data);
