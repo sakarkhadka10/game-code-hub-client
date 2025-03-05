@@ -10,6 +10,7 @@ import AdminLayout from "../components/Admin/AdminLayout";
 import AddProducts from "../components/Admin/layouts/Sidebar/MenuLists/AddProducts";
 import Dashboard from "../components/Admin/layouts/Dashboard/Dashboard";
 import AllUsers from "../components/Admin/layouts/Sidebar/MenuLists/AllUsers";
+import Products from "../components/Admin/layouts/Sidebar/MenuLists/Products";
 
 const RouterConfig = () => {
   return (
@@ -26,7 +27,7 @@ const RouterConfig = () => {
       <Route path="/admin" element={<AdminLayout />}>
         <Route index element={<Dashboard />} />
         <Route path="products/add" element={<AddProducts />} />
-        <Route path="products" element={<AddProducts />} />
+        <Route path="products" element={<Products />} />
         <Route path="all-users" element={<AllUsers />} />
       </Route>
     </Routes>
