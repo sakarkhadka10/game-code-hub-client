@@ -4,6 +4,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../../context/Auth/AuthContext.jsx"; // Updated import
 
 const LoginForm = () => {
+  const getUserApi = `${import.meta.env.VITE_SECRET_KEY_URI}/auth/login`;
+
   const navigate = useNavigate();
   const { login } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
@@ -19,7 +21,7 @@ const LoginForm = () => {
     const { email, password } = credentials;
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/login", {
+      const response = await fetch(getUserApi, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
