@@ -10,7 +10,7 @@ const AddProducts = () => {
     title: "",
     shortDescription: "",
     category: "",
-    featured: "",
+    featured: false,
     description: "",
     tags: "",
     price: "",
@@ -29,7 +29,7 @@ const AddProducts = () => {
     formData.append("title", product.title);
     formData.append("shortDescription", product.shortDescription);
     formData.append("category", product.category);
-    formData.append("featured", product.featured);
+    formData.append("featured", product.featured.toString()); //this will convert boolean to string for formdata
     formData.append("description", product.description);
     formData.append("tags", product.tags);
     formData.append("price", product.price);
@@ -53,7 +53,7 @@ const AddProducts = () => {
         title: "",
         shortDescription: "",
         category: "",
-        featured: "",
+        featured: false,
         description: "",
         tags: "",
         price: "",
@@ -167,7 +167,7 @@ const AddProducts = () => {
           {/* Featured Product */}
           <div className="mb-5">
             <label
-              htmlFor="category"
+              htmlFor="featured"
               className="block mb-2 text-lg font-medium text-gray-900"
             >
               Is Featured
@@ -175,16 +175,16 @@ const AddProducts = () => {
             <select
               id="featured"
               name="featured"
-              value={product.featured}
+              value={product.featured.toString()}
               onChange={handleChange}
               className="bg-gray-50 border border-gray-300 text-md rounded-xl block w-full px-4 py-2"
               required
             >
               <option value="" disabled>
-                Select a category
+                Select a Feature Status
               </option>
-              <option value="game-template">Yes</option>
-              <option value="web-template">No</option>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
             </select>
           </div>
 
