@@ -18,6 +18,7 @@ import Dashboard from "./components/Admin/layouts/Dashboard/Dashboard";
 import AddProducts from "./components/Admin/layouts/Sidebar/MenuLists/AddProducts";
 import Products from "./components/Admin/layouts/Sidebar/MenuLists/Products";
 import AllUsers from "./components/Admin/layouts/Sidebar/MenuLists/AllUsers";
+import ProtectedRoute from "./components/Routes/ProtectedRoute";
 
 function App() {
   return (
@@ -45,11 +46,14 @@ function App() {
               <Route path="/usersprofile" element={<UsersProfile />} />
               <Route path="/userscollection" element={<UsersCollection />} />
 
-              <Route path="/admin" element={<AdminLayout />}>
-                <Route index element={<Dashboard />} />
-                <Route path="products/add" element={<AddProducts />} />
-                <Route path="products" element={<Products />} />
-                <Route path="all-users" element={<AllUsers />} />
+              {/* Protected Admin Routes */}
+              <Route path="/admin" element={<ProtectedRoute />}>
+                <Route element={<AdminLayout />}>
+                  <Route index element={<Dashboard />} />
+                  <Route path="products/add" element={<AddProducts />} />
+                  <Route path="products" element={<Products />} />
+                  <Route path="all-users" element={<AllUsers />} />
+                </Route>
               </Route>
             </Routes>
           </ProductState>

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
-import { AuthContext } from "./AuthContext"; // Use named import
+import { AuthContext } from "./AuthContext"; 
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -20,9 +20,11 @@ const AuthProvider = ({ children }) => {
         },
       });
       const data = await response.json();
+      console.log("Fetch user details response:", data);
       if (response.ok) {
         setUser(data);
         setIsLoggedIn(true);
+        console.log("User authenticated:", { user: data, isLoggedIn: true });
       } else {
         localStorage.removeItem("token");
         setUser(null);
@@ -41,7 +43,7 @@ const AuthProvider = ({ children }) => {
     if (token) {
       fetchUserDetails(token);
     }
-  }, [ ]);
+  }, []);
 
   // Login function to set token and fetch user
   const login = async (token) => {

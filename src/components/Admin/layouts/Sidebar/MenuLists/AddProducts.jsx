@@ -2,10 +2,15 @@ import { useState } from "react";
 import axios from "axios";
 
 const AddProducts = () => {
+  const getUserApi = `${
+    import.meta.env.VITE_SECRET_KEY_URI
+  }/product/addproduct`;
+
   const [product, setProduct] = useState({
     title: "",
     shortDescription: "",
     category: "",
+    featured: "",
     description: "",
     tags: "",
     price: "",
@@ -24,6 +29,7 @@ const AddProducts = () => {
     formData.append("title", product.title);
     formData.append("shortDescription", product.shortDescription);
     formData.append("category", product.category);
+    formData.append("featured", product.featured);
     formData.append("description", product.description);
     formData.append("tags", product.tags);
     formData.append("price", product.price);
@@ -35,22 +41,19 @@ const AddProducts = () => {
       const token = localStorage.getItem("token");
       if (!token) throw new Error("Please login first");
 
-      const response = await axios.post(
-        "http://localhost:5000/api/product/addproduct",
-        formData,
-        {
-          headers: {
-            "auth-token": token,
-            // Don't set Content-Type manually, FormData sets it automatically
-          },
-        }
-      );
+      const response = await axios.post(getUserApi, formData, {
+        headers: {
+          "auth-token": token,
+          // Don't set Content-Type manually, FormData sets it automatically
+        },
+      });
 
       console.log("Product added:", response.data);
       setProduct({
         title: "",
         shortDescription: "",
         category: "",
+        featured: "",
         description: "",
         tags: "",
         price: "",
@@ -158,6 +161,30 @@ const AddProducts = () => {
               </option>
               <option value="game-template">Game Template</option>
               <option value="web-template">Web Template</option>
+            </select>
+          </div>
+
+          {/* Featured Product */}
+          <div className="mb-5">
+            <label
+              htmlFor="category"
+              className="block mb-2 text-lg font-medium text-gray-900"
+            >
+              Is Featured
+            </label>
+            <select
+              id="featured"
+              name="featured"
+              value={product.featured}
+              onChange={handleChange}
+              className="bg-gray-50 border border-gray-300 text-md rounded-xl block w-full px-4 py-2"
+              required
+            >
+              <option value="" disabled>
+                Select a category
+              </option>
+              <option value="game-template">Yes</option>
+              <option value="web-template">No</option>
             </select>
           </div>
 
